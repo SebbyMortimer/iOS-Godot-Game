@@ -11,6 +11,14 @@ jobs:
       - name: Install Godot
         run: brew install --cask godot
 
+      - name: Download Export Templates
+        run: |
+          mkdir -p ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable
+          curl -L https://downloads.tuxfamily.org/godotengine/4.4.1/Godot_v4.4.1-stable_export_templates.tpz -o templates.tpz
+          tar -xf templates.tpz
+          cp -r templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/
+          cp templates/* ~/Library/Application\ Support/Godot/export_templates/4.4.1.stable/ios.zip || true
+
       - name: Export iOS (Release)
         run: |
           mkdir -p export
