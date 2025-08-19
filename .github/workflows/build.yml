@@ -1,6 +1,8 @@
 name: "Build iOS app"
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:   # <-- allows manual / API triggers
 
 jobs:
   build_ios:
@@ -20,12 +22,9 @@ jobs:
 
           mv Example-Project.ipa ${{ runner.temp }}/Example-Project.ipa
 
-
       - name: Upload application
         uses: actions/upload-artifact@v4
         with:
           name: Example-Project
           path: ${{ runner.temp }}/Example-Project.ipa
-          # you can also archive the entire directory
-          # path: ${{ runner.temp }}/build
           retention-days: 3
