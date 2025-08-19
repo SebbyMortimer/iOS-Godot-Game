@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dppolwmkcxed3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TestBackground" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.122697, 0.359646, 0.279692, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TestBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TestText" type="Label" parent="CanvasLayer/TestBackground/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "I should be able to see this text"
