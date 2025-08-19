@@ -12,9 +12,9 @@ jobs:
         run: brew install --cask godot
 
       - name: Export iOS (Release)
-	run: |
-	  mkdir -p export
-	  godot --headless --export-release "iOS" export/YourGame.xcodeproj
+        run: |
+          mkdir -p export
+          godot --headless --export-release "iOS" export/YourGame.xcodeproj
 
       - name: Upload Xcode Project
         uses: actions/upload-artifact@v4
