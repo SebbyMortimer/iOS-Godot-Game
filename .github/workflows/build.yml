@@ -1,0 +1,23 @@
+name: Build iOS Project
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Godot
+        run: brew install --cask godot
+
+      - name: Export iOS
+        run: |
+          mkdir -p export
+          godot --headless --export "iOS" export/YourGame.xcodeproj
+
+      - name: Upload Xcode Project
+        uses: actions/upload-artifact@v3
+        with:
+          name: xcodeproject
+          path: export/
